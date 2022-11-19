@@ -1,5 +1,4 @@
 package com.example.weatherapplication;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
+import com.squareup.picasso.*;
 public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.ViewHolder> {
     private Context context;
     private ArrayList<WeatherRVModel> weatherRVModelArrayList;
@@ -30,7 +29,7 @@ public class WeatherRVAdapter extends RecyclerView.Adapter<WeatherRVAdapter.View
     @Override
     public void onBindViewHolder(@NonNull WeatherRVAdapter.ViewHolder holder, int position) {
         WeatherRVModel model = weatherRVModelArrayList.get(position);
-        Picasso.get().load("http:".concat(model.getTemperature()) + "C");
+        Picasso.get().load("http:".concat(model.getTemperature()) + "°C");
         holder.windTV.setText(model.getWindSpeed()+ "Km/h");
         SimpleDateFormat input = new SimpleDateFormat(("dd-MM-yyyyy hh:mm"));
         SimpleDateFormat output = new SimpleDateFormat("hh:mm aa");
